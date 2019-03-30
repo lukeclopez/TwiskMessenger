@@ -1,0 +1,35 @@
+<head>
+    <!-- Inherit from base.html so I don't have to paste the navbar html! -->
+    {% extends "base.html" %}
+</head>
+{% block body %}
+<form action="/send" method="POST">
+    <div class="input-field col s12">
+    <select name="to" id="to">
+        <option value="" disabled selected>Choose Recipient</option>
+        {% for recip in possible_recips %}
+        <option value="{{ recip }}">{{ recip }}</option>
+        {% endfor %}
+    </select>
+    <label>Send message to</label>
+    </div>
+    <input name="body" id="body" type="text">
+    <input class="btn grey darken-3" type="submit" value="send">
+</form>
+{% for message in messages %}
+<p style="border: 1px solid black">
+    {% if message.direction == "inbound" %}
+        {{ message.direction }} {{ message.date_sent }}<br>
+        <b>{{ message.body }}</b><br>
+    {% else %}
+        {{ message.direction }} {{ message.date_sent }}<br>
+        <b>{{ message.body }}</b><br>
+    {% endif %}
+</p>
+{% endfor %}
+<script>
+    // Initialize all elements (collapsibles).
+    M.AutoInit();
+</script>
+
+{% endblock %}

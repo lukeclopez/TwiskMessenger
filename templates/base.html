@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript for Materialize CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Get the icons ready so they work. -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Input tab title in the title block. Default is TutorRecord. -->
+    <title>{% block title %}Basic Template{% endblock %}</title>
+</head>
+<body class="grey lighten-3">
+    {% include "includes/navbar.html" %}
+    <br>
+    <div class="container">
+    {% block body %}
+    {% endblock %}
+    </div>
+    <br>
+</body>
+</html>
